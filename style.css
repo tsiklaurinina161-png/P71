@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Times New Roman', Times;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 35px;
+}
+.box{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px
+}
+.box input{
+    background-color: #333;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.box input::placeholder{
+    color: #d4d8dc;
+}
+.box button{
+    background-color: #333;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    margin: 0 5.5%;
+    padding-top : 10px;
+}
+.card-country{
+    background-color: #2b3743;
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 0;
+    min-height: 270px;
+    transition: transform 0.2s ease;
+}
+.card-country:hover {
+    transform: translateY(-5px);
+}
+.card-country img{
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.card-country p{
+    padding: 0 24px 25px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #f1f3f5;
+}
+.card-country h2{
+    font-size: 18px;
+    font-weight: 700;
+    padding: 25px 24px 14px;
+}
+.filter-container{
+    position: relative;
+    width: 200px;
+}
+#filter-button{
+    width: 100%;
+    background-color: #2b3743;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    min-height: 40px;
+}
+.dropdown{
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: #2b3743;
+    border-radius: 5px;
+    padding: 8px 0;
+    z-index: 10;
+}
+.dropdown.show{
+    display: block;
+}
+.dropdown p{
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.dropdown p:hover{
+    background-color: #3b4a59;
+}
+body.light-mode{
+    background-color: #fafafa;
+    color: #111517;
+}
+body.light-mode header,
+body.light-mode .card-country,
+body.light-mode .box input,
+body.light-mode #filter-button,
+body.light-mode .dropdown {
+    background-color: white;
+    color: #111517;
+}
+body.light-mode .box input::placeholder{
+    color: #555;
+}
+body.light-mode .card-country p{
+    color: #333;
+}
+body.light-mode .dropdown p:hover{
+    background-color: #eeeeee;
+}
+
+
+
+
+@media (max-width: 1100px){
+    .cards{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 40px;
+    }
+}
+@media (max-width: 768px){
+    header {
+        padding: 25px 5%;
+    }
+    header h1{
+        font-size: 20px;
+    }
+    header p{
+        font-size: 13px;
+    }
+    .box{
+        margin: 30px 5%;
+        gap: 20px;
+    }
+    .box input{
+        width: 60%;
+    }
+    .box button{
+        width: 40%;
+        padding: 20px 12px;
+    }
+    .cards{
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 0 5%;
+    }
+    .card-country img {
+        height: 140px;
+    }
+}
+@media (max-width: 480px){
+    header{
+        padding: 25px 5%;
+    }
+    header h1{
+        font-size: 16px;
+    }
+    header p{
+        font-size: 12px;
+    }
+    .box{
+        flex-direction: column;
+        align-items: stretch;
+        margin: 30px 5%;
+    }
+    .box input,
+    .box button{
+        width: 100%;
+    }
+    .cards{
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .card-country img{
+        height: 200px;
+    }
+}
